@@ -20,6 +20,15 @@ function setup() {
  
 }
 
+function draw(){
+  clear();
+   stroke (0);
+  strokeWeight (3);
+  const zoom = myMap.zoom();
+  const names = myMap. latLngToPixel (51.5074, 0.1278);
+  ellipse(names.x, names.y,zoom,zoom);
+  
+  
 
 
 
@@ -33,9 +42,9 @@ function setup() {
     const place = placesivebeen.getString(i,'name');
     
     let size = placesivebeen.getString(i, 'date');
-    size = map(size, 558, 60000000, 1, 25) + myMap.zoom();
+    size = map(size, 2016, 2019, 2016) + myMap.zoom();
     stroke(0);
-    ellipse(pos.x, pos.y, size, size);
+    ellipse(pos.x, pos.y, 5, 5);
     
     if(dist(pos.x,pos.y,mouseX,mouseY) < size){
       textSize(32);
@@ -43,8 +52,9 @@ function setup() {
     }
   
 
+  }
   
-  
+  print(zoom);
  
 }
 
